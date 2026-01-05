@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits - MARKET DIGITAL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="Images/logo-digital.png" alt="MARKET DIGITAL Logo" class="logo-image">
+            <div class="logo-text">
+                <h1>MARKET <span class="digital">DIGITAL</span></h1>
+                <p class="slogan">Votre boutique de produits numériques premium</p>
+            </div>
+        </div>
+        
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html" class="active">Produits</a></li>
+                <li><a href="panier.html">Panier</a></li>
+                <li><a href="connexion.html">Mon Compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Nos Catégories de Produits Numériques</h2>
+        
+        <!-- Processus d'achat -->
+        <section class="process">
+            <h3>Processus d'Achat en 3 Étapes Simples</h3>
+            <ol>
+                <li><strong>Sélection</strong> - Parcourez nos produits digitaux</li>
+                <li><strong>Paiement</strong> - Payez en ligne de manière sécurisée</li>
+                <li><strong>Téléchargement</strong> - Recevez instantanément vos fichiers</li>
+            </ol>
+        </section>
+
+        <!-- Tableau des packs -->
+        <section class="packages">
+            <h3>Packs Complets</h3>
+            <table>
+                <caption>Choisissez le pack adapté à vos besoins professionnels</caption>
+                <thead>
+                    <tr>
+                        <th>Pack</th>
+                        <th>Contenu</th>
+                        <th>Prix</th>
+                        <th>Économie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pack Débutant</strong></td>
+                        <td>5 templates PowerPoint + 100 icônes</td>
+                        <td>99 €</td>
+                        <td>Économisez 30€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pack Professionnel</strong></td>
+                        <td>10 templates + logos + kit branding</td>
+                        <td>199 €</td>
+                        <td>Économisez 80€</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pack Entreprise</strong></td>
+                        <td>Tous les produits + licence étendue</td>
+                        <td>399 €</td>
+                        <td>Économisez 200€</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Liste de définitions -->
+        <section class="definitions">
+            <h3>Lexique du Numérique</h3>
+            <dl>
+                <dt><strong>Template</strong></dt>
+                <dd>Modèle prêt à l'emploi, personnalisable pour vos projets</dd>
+                
+                <dt><strong>Licence Commerciale</strong></dt>
+                <dd>Droit d'utiliser le produit pour des projets clients</dd>
+                
+                <dt><strong>Responsive Design</strong></td>
+                <dd>Adaptation automatique aux différentes tailles d'écran</dd>
+                
+                <dt><strong>Fichiers Sources</strong></dt>
+                <dd>Fichiers originaux modifiables (PSD, AI, Sketch, etc.)</dd>
+            </dl>
+        </section>
+
+        <!-- Gallery produits -->
+        <section class="gallery">
+            <h3>Prévisualisation des Produits</h3>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="Images/template-ppt.jpg" alt="Template PowerPoint" class="gallery-image">
+                    <p>Template PowerPoint Pro</p>
+                    <p class="price">49 €</p>
+                    <button class="btn-small" onclick="addToCart('ppt')">Ajouter au panier</button>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="Images/kit-logo.jpg" alt="Kit Logo" class="gallery-image">
+                    <p>Kit Logo Startup</p>
+                    <p class="price">29 €</p>
+                    <button class="btn-small" onclick="addToCart('logo')">Ajouter au panier</button>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="Images/icons-pack.jpg" alt="Pack Icônes" class="gallery-image">
+                    <p>Pack Icônes Business</p>
+                    <p class="price">19 €</p>
+                    <button class="btn-small" onclick="addToCart('icons')">Ajouter au panier</button>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="Images/web-template.jpg" alt="Template Web" class="gallery-image">
+                    <p>Template Site Web</p>
+                    <p class="price">79 €</p>
+                    <button class="btn-small" onclick="addToCart('web')">Ajouter au panier</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formats supportés -->
+        <section class="formats">
+            <h3>Formats de Fichiers Supportés</h3>
+            <div class="format-grid">
+                <div class="format-item">📊 PowerPoint (.PPTX)</div>
+                <div class="format-item">🎨 Photoshop (.PSD)</div>
+                <div class="format-item">✏️ Illustrator (.AI)</div>
+                <div class="format-item">💻 HTML/CSS (.ZIP)</div>
+                <div class="format-item">📄 PDF Document</div>
+                <div class="format-item">🖼️ PNG/JPEG/SVG</div>
+            </div>
+        </section>
+
+        <!-- Call to action -->
+        <section class="cta">
+            <p>Trouvez le produit numérique parfait pour votre projet</p>
+            <a href="panier.html" class="btn-primary">Voir mon panier</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h4>MARKET DIGITAL</h4>
+                <p>Ressources digitales pour professionnels</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Licences</h4>
+                <p><a href="#">Licence Standard</a></p>
+                <p><a href="#">Licence Étendue</a></p>
+                <p><a href="#">FAQ Licences</a></p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 MARKET DIGITAL - Vente de produits numériques</p>
+            <p><a href="index.html">← Retour à l'accueil</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(product) {
+            alert('Produit ajouté au panier !');
+            // Ici, normalement, vous enverriez une requête AJAX
+        }
+    </script>
+</body>
+</html>

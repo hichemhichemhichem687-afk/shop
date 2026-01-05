@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - MARKET DIGITAL</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Script pour gérer le panier
+        function updateTotal() {
+            var pptQty = parseInt(document.getElementById('ppt-qty').value) || 0;
+            var logoQty = parseInt(document.getElementById('logo-qty').value) || 0;
+            var iconsQty = parseInt(document.getElementById('icons-qty').value) || 0;
+            var webQty = parseInt(document.getElementById('web-qty').value) || 0;
+            
+            var total = (pptQty * 49) + (logoQty * 29) + (iconsQty * 19) + (webQty * 79);
+            document.getElementById('totalAmount').textContent = total + ' €';
+            
+            // Mise à jour des sous-totaux
+            document.getElementById('subPpt').textContent = (pptQty * 49) + ' €';
+            document.getElementById('subLogo').textContent = (logoQty * 29) + ' €';
+            document.getElementById('subIcons').textContent = (iconsQty * 19) + ' €';
+            document.getElementById('subWeb').textContent = (webQty * 79) + ' €';
+        }
+        
+        function submitOrder() {
+            var email = document.getElementById('email').value;
+            if (email) {
+                alert('Merci pour votre commande !\nUn email avec les liens de téléchargement a été envoyé à ' + email);
+                document.getElementById('orderForm').reset();
+                resetCart();
+                return false;
+            }
+            alert('Veuillez remplir votre adresse email.');
+            return false;
+        }
+        
+        function resetCart() {
+            document.getElementById('ppt-qty').value = 0;
+            document.getElementById('logo-qty').value = 0;
+            document.getElementById('icons-qty').value = 0;
+            document.getElementById('web-qty').value = 0;
+            updateTotal();
+        }
+        
+        // Initialiser au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTotal();
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="Images/logo-digital.png" alt="MARKET DIGITAL Logo" class="logo-image">
+            <div class="logo-text">
+                <h1>MARKET <span class="digital">DIGITAL</span></h1>
+                <p class="slogan">Votre boutique de produits numériques premium</p>
+            </div>
+        </div>
+        
+        <nav class="navigation">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="panier.html" class="active">Panier</a></li>
+                <li><a href="connexion.html">Mon Compte</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Votre Panier Numérique</h2>
+        <p>Finalisez votre achat pour télécharger instantanément vos produits.</p>
+
+        <!-- Formulaire de commande -->
+        <form id="orderForm" onsubmit="return submitOrder()">
+            <fieldset>
+                <legend><strong>Produits Sélectionnés</strong></legend>
+                
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Produit</th>
+                            <th>Prix unitaire</th>
+                            <th>Quantité</th>
+                            <th>Sous-total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Template PowerPoint Pro</strong></td>
+                            <td>49 €</td>
+                            <td>
+                                <input type="number" id="ppt-qty" name="ppt-qty" min="0" value="0" onchange="updateTotal()" style="width: 60px;">
+                            </td>
+                            <td id="subPpt">0 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kit Logo Startup</strong></td>
+                            <td>29 €</td>
+                            <td>
+                                <input type="number" id="logo-qty" name="logo-qty" min="0" value="0" onchange="updateTotal()" style="width: 60px;">
+                            </td>
+                            <td id="subLogo">0 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pack Icônes Business</strong></td>
+                            <td>19 €</td>
+                            <td>
+                                <input type="number" id="icons-qty" name="icons-qty" min="0" value="0" onchange="updateTotal()" style="width: 60px;">
+                            </td>
+                            <td id="subIcons">0 €</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Template Site Web</strong></td>
+                            <td>79 €</td>
+                            <td>
+                                <input type="number" id="web-qty" name="web-qty" min="0" value="0" onchange="updateTotal()" style="width: 60px;">
+                            </td>
+                            <td id="subWeb">0 €</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3" style="text-align: right;"><strong>Total TTC :</strong></td>
+                            <td><strong id="totalAmount">0 €</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend><strong>Informations de Facturation</strong></legend>
+                
+                <div class="form-group">
+                    <label for="email">Adresse email *</label>
+                    <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    <small>Les liens de téléchargement seront envoyés à cette adresse</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Entreprise (optionnel)</label>
+                    <input type="text" id="company" name="company" placeholder="Nom de votre entreprise">
+                </div>
+                
+                <div class="form-group">
+                    <label for="vat">Numéro de TVA (optionnel)</label>
+                    <input type="text" id="vat" name="vat" placeholder="FRXX123456789">
+                </div>
+                
+                <div class="form-group">
+                    <label for="license">Type de licence *</label>
+                    <select id="license" name="license" required>
+                        <option value="standard">Licence Standard (usage personnel)</option>
+                        <option value="commercial">Licence Commerciale (usage clients)</option>
+                        <option value="extended">Licence Étendue (redistribution limitée)</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend><strong>Paiement</strong></legend>
+                
+                <div class="form-group">
+                    <label>Mode de paiement *</label><br>
+                    <input type="radio" id="card" name="payment" value="card" checked>
+                    <label for="card">Carte bancaire 💳</label><br>
+                    
+                    <input type="radio" id="paypal" name="payment" value="paypal">
+                    <label for="paypal">PayPal</label><br>
+                    
+                    <input type="radio" id="transfer" name="payment" value="transfer">
+                    <label for="transfer">Virement bancaire</label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="coupon">Code promo (optionnel)</label>
+                    <input type="text" id="coupon" name="coupon" placeholder="EX: DIGITAL20">
+                    <button type="button" class="btn-small" onclick="applyCoupon()">Appliquer</button>
+                </div>
+                
+                <div class="form-group">
+                    <label for="terms">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        J'accepte les <a href="#">conditions générales de vente</a> et la <a href="#">politique de licences</a> *
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="newsletter">
+                        <input type="checkbox" id="newsletter" name="newsletter" checked>
+                        Je souhaite recevoir les nouvelles offres et produits
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="form-actions">
+                <input type="reset" value="Vider le panier" class="btn-secondary" onclick="resetCart()">
+                <input type="submit" value="Payer et télécharger" class="btn-primary">
+            </div>
+        </form>
+
+        <!-- Informations complémentaires -->
+        <section class="order-info">
+            <h3>Comment fonctionne l'achat numérique ?</h3>
+            <ol>
+                <li>Vous sélectionnez vos produits et quantités</li>
+                <li>Vous payez en ligne de manière sécurisée</li>
+                <li>Vous recevez instantanément les liens de téléchargement par email</li>
+                <li>Vous téléchargez et utilisez immédiatement vos produits</li>
+                <li>Vous bénéficiez d'un support technique inclus</li>
+            </ol>
+            
+            <div class="contact-details">
+                <h4>Questions avant d'acheter ?</h4>
+                <p>📧 Support : <a href="mailto:support@marketdigital.com">support@marketdigital.com</a></p>
+                <p>📞 Téléphone : <a href="tel:+33123456789">01 23 45 67 89</a></p>
+                <p>🕒 Support : Lundi-Vendredi 9h-18h (réponse sous 24h)</p>
+                <p>🔒 Paiement 100% sécurisé SSL</p>
+                <p>🔄 Garantie 30 jours satisfait ou remboursé</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h4>MARKET DIGITAL</h4>
+                <p>Votre source de ressources digitales</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <p><a href="index.html">Accueil</a> | <a href="produits.html">Produits</a> | <a href="panier.html">Panier</a> | <a href="connexion.html">Mon Compte</a></p>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2024 MARKET DIGITAL - Vente de produits numériques</p>
+            <p><a href="index.html">← Retour à l'accueil</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function applyCoupon() {
+            var coupon = document.getElementById('coupon').value;
+            if (coupon.toUpperCase() === 'DIGITAL20') {
+                alert('Code promo appliqué ! 20% de réduction');
+                // Ici, normalement, vous calculeriez la réduction
+            } else if (coupon) {
+                alert('Code promo invalide');
+            }
+        }
+    </script>
+</body>
+</html>
